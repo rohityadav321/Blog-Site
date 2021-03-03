@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>CodeTopper | {{user.username}}</title>
+  <link rel="stylesheet" href="{% static 'index.css' %}" />
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div id="brand">
+        <h1><a href="/"><span class="highlight">code</span>topper</a></h1>
+      </div>
+      <nav class="nav">
+        <ul>
+          {% if user.is_authenticated %}
+          <li>
+            <a href="user_detail"><button title="{{user.username}}">{{user.username}}</button></a>
+          </li>
+          <li>
+            <a href="logout"><button title="logout">Logout</button></a>
+          </li>
+
+          {% else %}
+          <li>
+            <a href="login "><button title="login">Login</button></a>
+          </li>
+          <li>
+            <a href="signup "><button title="Sign Up">Sign Up</button></a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section>
+    {% for a in article %}
+    <div>
+      <h4> <a href="#">{{a.title}}</a></h4>
+      <p>{{a.body}}</p>
+      <span>{{a.date}}</span>
+    </div>
+    {% endfor %}
+
+  </section>
+
+  <footer class="foot">
+    <hr />
+    <div>
+      <h6>CodeTopper &copy; {{ years }}</h6>
+    </div>
+  </footer>
+</body>
+
+</html>

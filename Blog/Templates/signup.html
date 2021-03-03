@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
+    <title>codetopper</title>
+</head>
+
+<body>
+    <section class="container">
+        <h2><button class="back">
+                <a href="/">
+                    &#8592</a>
+            </button></h2>
+    </section>
+    <form action="signup" method="post" id="form">
+        {% csrf_token %}
+        <div id="signup">Sign Up</div>
+
+        <span class="error">
+            {% for message in messages %}
+            <h6 style="color: red; font-weight: 50">{{ message }}</h6>
+        </span>
+
+        {% endfor %}
+
+        <input type="email" id="int" name="email" placeholder="enter your email"><br>
+        <input type="hidden" id="mailerr">
+        <input type="text" id="int" name="username" placeholder="enter your username"><br>
+        <input type="hidden" id="usererr">
+        <input type="password" id="int" name="password" placeholder="create password"><br>
+        <input type="hidden" id="passerr">
+        <input type="password" id="int" name="conf_pass" placeholder="confirm password"><br>
+        <input type="hidden" id="passerr2">
+        <input type="submit" id="button" name="signup" value="signup">
+        <p>Already have an account?<br> <a href="login">Login here</a>
+        </p>
+        <!--<div class="div">
+                <div style="width:40%" ; class="lin">
+                    <hr>
+                </div>
+                <span style="width:20%" class="or">or</span>
+                <div style="width:40%" ; class="rin">
+                    <hr>
+                </div>
+            </div>
+
+           <div class="alt">
+                <button id="fb"><a href="#">facebook</a></button>
+                <button id="go"><a href="#">google</a></button>
+
+            </div>-->
+
+    </form>
+    </section>
+
+</body>
+
+</html>
