@@ -20,18 +20,18 @@
         <ul>
           {% if user.is_authenticated %}
           <li>
-            <a href="account/user_detail"><button>{{user.username}}</button></a>
+            <a href="user_detail"><button>{{user.username}}</button></a>
           </li>
           <li>
-            <a href="account/logout"><button>Logout</button></a>
+            <a href="logout"><button>Logout</button></a>
           </li>
 
           {% else %}
           <li>
-            <a href="account/login "><button>Login</button></a>
+            <a href="login "><button>Login</button></a>
           </li>
           <li>
-            <a href="account/signup "><button>Sign Up</button></a>
+            <a href="signup "><button>Sign Up</button></a>
           </li>
           {% endif %}
         </ul>
@@ -43,7 +43,7 @@
       {% for a in article %}
       <div>
         <h4> <a href="#">{{a.title}}</a></h4>
-        <p>{{a.body}}</p>
+        <p>{{a.short}}</p>
         <span>{{a.date}}</span>
       </div>
       {% endfor %}

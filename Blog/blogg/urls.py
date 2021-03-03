@@ -6,6 +6,6 @@ urlpatterns = [
     # path('login', views.login, name="login"),
     # path('logout', views.logout, name="logout"),
     # path('user_detail', views.user_detail, name="user"),
-    path('', views.home, name="codetopper")
+    path('', views.home, name="Blogg")
 
 ]
