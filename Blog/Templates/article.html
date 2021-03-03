@@ -1,60 +1,18 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>CodeTopper | {{user.username}}</title>
-    <link rel="stylesheet" href="{% static 'index.css' %}" />
-</head>
-
-<body>
-    <header>
-        <div class="container">
-            <div id="brand">
-                <h1><a href="/"><span class="highlight">Blogg</span>Vlogg</a></h1>
-            </div>
-            <nav class="nav">
-                <ul>
-                    {% if user.is_authenticated %}
-                    <li>
-                        <a href="user_detail"><button title="{{user.username}}">{{user.username}}</button></a>
-                    </li>
-                    <li>
-                        <a href="logout"><button title="logout">Logout</button></a>
-                    </li>
-
-                    {% else %}
-                    <li>
-                        <a href="login "><button title="login">Login</button></a>
-                    </li>
-                    <li>
-                        <a href="signup "><button title="Sign Up">Sign Up</button></a>
-                    </li>
-                    {% endif %}
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <section class="section">
+{% extends 'base.html' %}
+{% block title %}
+{{article.title}}
+{% endblock %}
+{% block content %}
+<section class="section">
+    <div>
         <div>
-            <div>
-                <h4>{{article.title}}</h4>
-                <p>{{article.body}}</p>
-                <span>{{article.date}}</span>
-            </div>
+            <h4>{{article.title}}</h4>
+            <span>{{article.date}}</span>
+            <img src="{{article.image.url}}" alt="{{article.title}}" title="{{article.title}}">
+            <p>{{article.body}}</p>
 
         </div>
-    </section>
 
-    <footer class="foot">
-        <hr />
-        <div>
-            <h6>CodeTopper &copy; {{ years }}</h6>
-        </div>
-    </footer>
-</body>
-
-</html>
+    </div>
+</section>
+{% endblock %}

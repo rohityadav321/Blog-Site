@@ -9,6 +9,7 @@ class Article(models.Model):
     body = models.TextField()
     slug = models.SlugField()
     date = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(default='default.png', blank=True)
     # author=models.ForeignKey(User,Default = "null")
 
     def __str__(self):
