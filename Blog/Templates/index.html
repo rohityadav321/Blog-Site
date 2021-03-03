@@ -14,7 +14,7 @@
   <header>
     <div class="container">
       <div id="brand">
-        <h1><a href="/"><span class="highlight">code</span>topper</a></h1>
+        <h1><a href="/"><span class="highlight">Blogg</span>Vlogg</a></h1>
       </div>
       <nav class="nav">
         <ul>
@@ -42,7 +42,7 @@
     <div>
       {% for a in article %}
       <div>
-        <h4> <a href="#">{{a.title}}</a></h4>
+        <h4> <a href="{% url 'article' slug=a.slug %}">{{a.title}}</a></h4>
         <p>{{a.short}}</p>
         <span>{{a.date}}</span>
       </div>

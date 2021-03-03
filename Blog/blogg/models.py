@@ -15,4 +15,4 @@ class Article(models.Model):
         return self.title
 
     def short(self):
-        return self.body[0:50]+"..."
+        return self.body[:50]+"..."
