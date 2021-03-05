@@ -1,4 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-Create and article
+Create an article
+<form class="article_form" action=" {% url 'BLogg:create'  %} " method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{forms}}
+    <input type="submit" name="submit">
+</form>
 {% endblock %}

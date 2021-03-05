@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 <section class="section">
+
   <div>
     {% for a in article %}
     <div>
-      <h4> <a href="{% url 'article' slug=a.slug %}">{{a.title}}</a></h4>
+      <h4> <a href="{% url 'BLogg:article' slug=a.slug %}">{{a.title}}</a></h4>
       <p>{{a.short}}</p>
       <span>{{a.date}}</span>
     </div>

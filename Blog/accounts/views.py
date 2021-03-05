@@ -7,12 +7,6 @@ import datetime
 # Create your views here.
 
 
-# def home(request):
-#     now = datetime.datetime.now()
-#     article = Article.objects.all().order_by('date')
-#     return render(request, 'index.html', {'years': now.year, 'article': article})
-
-
 def logout(request):
     auth.logout(request)
     return redirect('/')
@@ -33,7 +27,7 @@ def login(request):
                 return redirect('/')
         else:
             messages.info(request, 'invalid username or password')
-            return redirect('login')
+            return redirect('accounts:login')
     return render(request, 'login.html')
 
 
@@ -46,7 +40,7 @@ def signup(request):
         if len(password) < 8:
 
             messages.info(request, 'password too short')
-            return redirect('signup')
+            return redirect('accounts:signup')
 
         else:
 
@@ -63,10 +57,10 @@ def signup(request):
                     user.save()
                     messages.info(request, 'account successfully created ')
 
-                    return redirect('login')
+                    return redirect('accounts:login')
             else:
                 messages.info(request, 'password does not match')
-                return redirect('signup')
+                return redirect('accounts:signup')
     else:
         return render(request, 'signup.html')
 

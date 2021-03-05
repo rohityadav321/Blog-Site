@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>{% block title %}{% endblock %} - BloggVlogg</title>
-  <link rel="stylesheet" href="{% static 'index.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/index.css' %}" />
 </head>
 
 <body>
@@ -24,6 +24,9 @@
           </li>
           <li>
             <a href="accounts/logout"><button title="logout">Logout</button></a>
+          </li>
+          <li>
+            <a href="create"><button title="Create Article">Create</button></a>
           </li>
 
           {% else %}
@@ -45,9 +48,10 @@
   <footer class="foot">
     <hr />
     <div>
-      <h6>CodeTopper &copy; {{ years }}</h6>
+      <h6>BloggVlogg &copy; {{ years }}</h6>
     </div>
   </footer>
 </body>
+<script src="{% static 'js/index.js' %}"></script>
 
 </html>
