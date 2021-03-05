@@ -27,7 +27,10 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
-            return redirect('/')
+            if 'next' in request.POST:
+                return redirect(request.POST.get('next'))
+            else:
+                return redirect('/')
         else:
             messages.info(request, 'invalid username or password')
             return redirect('login')

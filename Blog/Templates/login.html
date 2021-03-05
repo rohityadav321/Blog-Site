@@ -28,6 +28,9 @@
 
             {% endfor %}
             {% csrf_token %}
+            {% if request.GET.next %}
+            <input type="hidden" name="next" value="{{request.GET.next}}">
+            {% endif %}
             <input type="text" id="int" name="username" placeholder="username"><br>
             <input type="hidden" id="usererr">
             <input type="password" id="int" name="password" placeholder="password"><br>
